@@ -9,9 +9,9 @@ port=$4
 echo "Executing nmap scans on IP address "$ip" port(s)"$port" at a rate of T"$rate" and storing into files labelled"$fileName
 
 
-nmap_sc_sv_command="nmap -T"$rate" -p "$port" -sC -sV -A -oX "$fileName"_sc_sv_scan "$ip
-nmap_script_vuln_command="nmap -T"$rate" -p "$port" -script vuln -oX "$fileName"_script_vuln_scan "$ip
-nmap_script_auth_command="nmap -T"$rate" -p "$port" -script auth -oX "$fileName"_script_auth_scan "$ip
+nmap_sc_sv_command="nmap -T"$rate" -p "$port" -sC -sV -A -oN "$fileName"_sc_sv_scan "$ip
+nmap_script_vuln_command="nmap -T"$rate" -p "$port" -script vuln -oN "$fileName"_script_vuln_scan "$ip
+nmap_script_auth_command="nmap -T"$rate" -p "$port" -script auth -oN "$fileName"_script_auth_scan "$ip
 
 echo $nmap_sc_sv_command
 $nmap_sc_sv_command &
